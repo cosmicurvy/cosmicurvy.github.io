@@ -44,7 +44,7 @@
                 Data Science Enthusiast
             </h1>
             <p class="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-                I'm a self-taught Data Science learner with more than 1.5 years of hands-on experience building projects in data analysis, machine learning, and NLP. I enjoy turning data into meaningful insights and building practical solutions to real-world problems.
+                I'm a self-taught Data Science learner with more than 1.5 years of hands-on experience in building projects in data analysis, machine learning, and NLP. I enjoy turning data into meaningful insights and building practical solutions to real-world problems.
             </p>
             <div class="flex justify-center space-x-4">
                 <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold rounded-lg shadow-lg shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5">
@@ -66,6 +66,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
                 <!-- Project 1 (Customer-Churn-Prediction)-->
                 <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
                     <img src="images/customer_churn_preview.png" alt="Customer Churn Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
@@ -78,16 +79,40 @@
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Machine Learning</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">SHAP</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Imbalanced-learn</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Streamlit</span>
                         </div>
                         <div class="flex space-x-3">
-                            <a href="#" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
+                            <a href="https://customer-churn-prediction-pwappywh3appgedre6bwm6p.streamlit.app" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
                             <a href="https://github.com/cosmicurvy/Customer-Churn-Prediction" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 (Amazon Reviews NLP)-->
+                <!-- Project 2 (QA-RAG System)-->
+                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
+                    <img src="images/rag.png" alt="Customer Churn Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">QA RAG System</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
+                            QA-RAG pipeline for NLP research papers using recursive chunking, HF embeddings, and ChromaDB retrieval. Containerized with Docker, CI/CD via GitHub Actions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">ChromaDB</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Hugging Face Embeddings</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">FastAPI</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Docker</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">DeepEval</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/cosmicurvy/qa-rag-system/tree/main/screenshots" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
+                            <a href="https://github.com/cosmicurvy/qa-rag-system" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Amazon Reviews NLP)-->
                 <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
                     <img src="images/sentiment_preview.png" alt="Sentiment Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
                     <div class="p-6 flex-grow flex flex-col">
@@ -97,6 +122,8 @@
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">NLP</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">LDA</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Word2Vec</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">LSTM</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">DistilBERT</span>
                         </div>
@@ -107,29 +134,27 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project 4 (2-Stage Loan Approval System)-->
                 <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <div class="p-6 bg-gradient-to-b from-gray-800/20 to-transparent flex items-center justify-center h-40 border-b border-gray-800/40 relative">
-                        <i class="fa-solid fa-laptop-code text-4xl text-purple-500/40 group-hover:text-purple-400/80 transition-colors"></i>
-                    </div>
+                    <img src="images/loan.png" alt="Sentiment Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
                     <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">AI Voice Chatbot</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">2-Stage Loan Approval System</h3>
                         <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed interdum diam, quis hendrerit augue.
+                            Two-stage ML system that predicts loan approval and estimates the approved loan amount using Random Forest.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">FastAPI</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Docker</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Machine Learning</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Streamlit</span>
                         </div>
                         <div class="flex space-x-3">
-                            <a href="#" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Demo</a>
-                            <a href="#" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
+                            <a href="https://2-stage-loan-approval-system-f4b526kvccxtxzrw7swbb9.streamlit.app" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Demo</a>
+                            <a href="https://github.com/cosmicurvy/2-Stage-Loan-Approval-System" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 4 (Spam Classification) -->
+                <!-- Project 5 (Spam Classification) -->
                 <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
                     <img src="images/spam_detection_preview.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
                     <div class="p-6 flex-grow flex flex-col">
@@ -150,22 +175,40 @@
                     </div>
                 </div>
 
-                <!-- Project 5 -->
+
+                <!-- Project 6 (Retail Intelligence System)-->
                 <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/spam_detection_preview.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                    <img src="images/retail.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2"> Retail Intelligence System </h3>
                         <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed interdum diam, quis hendrerit augue.
+                            A machine learning project for predicting retail store sales.
                         <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Machine Learning</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">NLTK</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Word Cloud</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Flask</span>
+
                         </div>
                         <div class="flex space-x-3">
-                            <a href="https://github.com/cosmicurvy/Spam-Detection/tree/main/images" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
-                            <a href="https://github.com/cosmicurvy/Spam-Detection.git" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
+                            <a href="https://github.com/cosmicurvy/Retail-Intelligence-System" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 (Delivery Dataset Analysis)-->
+                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
+                    <img src="images/spam_detection_preview.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2"> Delivery Dataset Analysis </h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
+                            Exploration, hypothesis testing and model building on delivery dataset.
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">EDA</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Pandas</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Numpy</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Scipy</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/cosmicurvy/Delhivery-Dataset" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
                         </div>
                     </div>
                 </div>
