@@ -100,10 +100,11 @@
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">ChromaDB</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Hugging Face Embeddings</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">HuggingFaceEmbeddings</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">FastAPI</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Docker</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">DeepEval</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Ollama</span>
                         </div>
                         <div class="flex space-x-3">
                             <a href="https://github.com/cosmicurvy/qa-rag-system/tree/main/screenshots" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
@@ -126,6 +127,7 @@
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Word2Vec</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">LSTM</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">DistilBERT</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">WordCloud</span>>
                         </div>
                         <div class="flex space-x-3">
                             <a href="https://github.com/cosmicurvy/amazon-reviews-nlp/tree/main/images" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
@@ -165,7 +167,7 @@
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Machine Learning</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">NLTK</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Word Cloud</span>
+                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">WordCloud</span>
                             <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Flask</span>
                         </div>
                         <div class="flex space-x-3">
@@ -196,7 +198,7 @@
 
                 <!-- Project 7 (Delivery Dataset Analysis)-->
                 <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/spam_detection_preview.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                    <img src="images/delivery.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2"> Delivery Dataset Analysis </h3>
                         <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
@@ -226,37 +228,102 @@
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <!-- Pythom -->
                 <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
                     <i class="fa-brands fa-python text-blue-400 text-3xl mb-2"></i>
                     <p class="font-medium text-white">Python</p>
                 </div>
+                <!-- MySQL -->
                 <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
                     <i class="fa-solid fa-database text-purple-400 text-3xl mb-2"></i>
                     <p class="font-medium text-white">MySQL</p>
                 </div>
+                <!-- Pandas -->
                 <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-brands fa-react text-cyan-400 text-3xl mb-2"></i>
+                    <i class="fa-solid fa-table text-blue-400 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">Pandas</p>
+                </div>
+                <!-- NumPy -->
+               <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-cubes text-sky-500 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">NumPy</p>
+                </div>
+                <!-- SciPy -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-wave-square text-lime-400 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">SciPy</p>
+                </div>
+                <!-- Matplotlib -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-chart-line text-amber-500 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">Matplotlib</p>
+                </div>
+                <!-- Seaborn -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-chart-bar text-orange-400 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">Seaborn</p>
+                </div>
+                <!-- Imbalanced-learn -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                <i class="fa-solid fa-scale-unbalanced text-amber-600 text-3xl mb-2"></i>
+                <p class="font-medium text-white">Imbalanced-learn</p>
+                </div>
+                <!-- Statistics -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-calculator text-yellow-500 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">Statistics</p>
+                </div>
+                <!-- Machine Learning -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-brain text-cyan-400 text-3xl mb-2"></i>
                     <p class="font-medium text-white">Machine Learning</p>
                 </div>
+                <!-- Deep Learning -->
                 <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-language text-pink-500 text-3xl mb-2"></i>
+                    <i class="fa-solid fa-network-wired text-purple-500 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">Deep Learning</p>
+                </div>
+                <!-- Natural Language Processing -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-comments text-pink-500 text-3xl mb-2"></i>
                     <p class="font-medium text-white">Natural Language Processing</p>
                 </div>
+                <!-- Flask -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-flask text-emerald-400 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">Flask</p>
+                </div>
+                <!-- Streamlit -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-window-restore text-red-400 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">Streamlit</p>
+                </div>
+                <!-- FastAPI -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bolt text-teal-400 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">FastAPI</p>
+                </div>
+                <!-- RAG / LangChain -->
+                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-database text-indigo-400 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">RAG / LangChain</p>
+                </div>
+                <!-- Git / GitHub -->
                 <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
                     <i class="fa-brands fa-git-alt text-orange-600 text-3xl mb-2"></i>
                     <p class="font-medium text-white">Git / GitHub</p>
                 </div>
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-brain-circuit text-purple-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">RAG/ Langchain</p>
-                </div>
+                <!-- Docker -->
                 <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
                     <i class="fa-brands fa-docker text-blue-500 text-3xl mb-2"></i>
                     <p class="font-medium text-white">Docker</p>
                 </div>
+
+                <!-- CI/CD -->
                 <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-cloud text-emerald-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Cloud Hosting</p>
+                    <i class="fa-solid fa-infinity text-indigo-500 text-3xl mb-2"></i>
+                    <p class="font-medium text-white">CI/CD</p>
+                </div>
                 </div>
             </div>
         </div>
@@ -288,12 +355,15 @@
                     <a href="https://linkedin.com/in/cosmicurvy" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition-colors" title="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
-                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" title="Twitter / X">
+                    <a href="https://www.kaggle.com/urvashisahu1720" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-500 transition-colors" title="Kaggle">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </a>
+                    <!-- <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" title="Twitter / X">
                         <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors" title="Other Link">
+                    </a> -->
+                    <!-- <a href="" class="text-gray-400 hover:text-pink-400 transition-colors" title="Other Link">
                         <i class="fa-solid fa-link"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
