@@ -1,375 +1,351 @@
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Data Scientist</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Urvashi Sahu | Data Scientist</title>
+  <meta name="description" content="Portfolio of Urvashi Sahu, a self-taught data scientist working across data analysis, machine learning and NLP.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-<body class="bg-[#0b0f19] text-gray-200 font-sans antialiased selection:bg-cyan-500 selection:text-slate-900">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-[#0b0f19]/70 border-b border-gray-800/50 navbar-custom">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#home" class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wider">
-                        <span class="text-gray-400 font-normal text-sm ml-1 hidden sm:inline">cosmicurvy</span>
-                    </a>
-                </div>
-                <div class="flex space-x-1 sm:space-x-4">
-                    <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-400 transition-colors">Home</a>
-                    <a href="#projects" class="px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-400 transition-colors">Projects</a>
-                    <a href="#skills" class="px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-400 transition-colors">Skills</a>
-                    <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-400 transition-colors">Contact</a>
-                </div>
-            </div>
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="#top">cosmicurvy</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a class="link" href="#projects">Projects</a></li>
+          <li><a class="link" href="#about">About</a></li>
+          <li><a class="link" href="#skills">Skills</a></li>
+          <li><a class="link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Urvashi Sahu builds smart systems out of data.</h1>
+          <p class="lead">
+            Self-taught data scientist with more than 1.5 years of hands-on project experience in
+            data analysis, machine learning and NLP. I turn raw data into insights and practical
+            tools.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">See my projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero / Home Section -->
-    <section id="home" class="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 relative overflow-hidden">
-        <!-- Subtle background glow -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-3xl text-center z-10">
-            <span class="text-cyan-400 font-mono text-sm tracking-widest block mb-3 uppercase">Welcome</span>
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6">
-                Hi, I'm <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Urvashi Sahu</span>.<br>
-                Data Science Enthusiast
-            </h1>
-            <p class="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-                I'm a self-taught Data Science learner with more than 1.5 years of hands-on experience in building projects in data analysis, machine learning, and NLP. I enjoy turning data into meaningful insights and building practical solutions to real-world problems.
-            </p>
-            <div class="flex justify-center space-x-4">
-                <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold rounded-lg shadow-lg shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5">
-                    View My Work
-                </a>
-                <a href="#contact" class="px-6 py-3 border border-gray-700 hover:border-cyan-500/50 hover:bg-gray-800/30 text-gray-300 font-semibold rounded-lg transition-all">
-                    Let's Chat
-                </a>
-            </div>
-        </div>
+        <figure class="field">
+          <canvas id="field" role="img"
+                  aria-label="Animated scatter plot of data points with a fitted curve. Moving the cursor shows how far each point is from the curve."></canvas>
+          <figcaption>Dots are data. The amber line is the model. Move your cursor over the plot to see each dot's error.</figcaption>
+        </figure>
+      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-[#0e1422] border-y border-gray-800/50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Featured Projects</h2>
-                <div class="w-16 h-1 bg-cyan-400 mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <!-- Project 1 (Customer-Churn-Prediction)-->
-                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/customer_churn_preview.png" alt="Customer Churn Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Customer Churn Prediction</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            Customer churn prediction system utilizing exploratory data analysis, feature engineering, classification algorithms, cross-validation , shap values and tableau visualization.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Machine Learning</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">SHAP</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Imbalanced-learn</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Streamlit</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://customer-churn-prediction-pwappywh3appgedre6bwm6p.streamlit.app" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
-                            <a href="https://github.com/cosmicurvy/Customer-Churn-Prediction" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 (QA-RAG System)-->
-                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/rag.png" alt="Customer Churn Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">QA RAG System</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            QA-RAG pipeline for NLP research papers using recursive chunking, HF embeddings, and ChromaDB retrieval. Containerized with Docker, CI/CD via GitHub Actions.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">ChromaDB</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">HuggingFaceEmbeddings</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">FastAPI</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Docker</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">DeepEval</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Ollama</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://github.com/cosmicurvy/qa-rag-system/tree/main/screenshots" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
-                            <a href="https://github.com/cosmicurvy/qa-rag-system" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 (Amazon Reviews NLP)-->
-                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/sentiment_preview.png" alt="Sentiment Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Amazon Reviews NLP - Topic Modeling & Sentiment</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            NLP project for Amazon review analysis, topic modeling, and sentiment classification.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">NLP</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">LDA</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Word2Vec</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">LSTM</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">DistilBERT</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">WordCloud</span>>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://github.com/cosmicurvy/amazon-reviews-nlp/tree/main/images" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
-                            <a href="https://github.com/cosmicurvy/amazon-reviews-nlp" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 (2-Stage Loan Approval System)-->
-                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/loan.png" alt="Sentiment Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">2-Stage Loan Approval System</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            Two-stage ML system that predicts loan approval and estimates the approved loan amount using Random Forest.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Machine Learning</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Streamlit</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://2-stage-loan-approval-system-f4b526kvccxtxzrw7swbb9.streamlit.app" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Demo</a>
-                            <a href="https://github.com/cosmicurvy/2-Stage-Loan-Approval-System" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 (Spam Classification) -->
-                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/spam_detection_preview.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2"> Spam Detection </h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            A machine learning project that classify a message into ham or spam. 
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Machine Learning</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">NLTK</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">WordCloud</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Flask</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://github.com/cosmicurvy/Spam-Detection/tree/main/images" class="flex-1 text-center py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded font-medium text-sm transition-colors">Preview</a>
-                            <a href="https://github.com/cosmicurvy/Spam-Detection.git" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Project 6 (Retail Intelligence System)-->
-                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/retail.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2"> Retail Intelligence System </h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            A machine learning project for predicting retail store sales.
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Python</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Machine Learning</span>
-
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://github.com/cosmicurvy/Retail-Intelligence-System" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7 (Delivery Dataset Analysis)-->
-                <div class="bg-[#131b2e] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col group">
-                    <img src="images/delivery.png" alt="Spam Detection Preview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2"> Delivery Dataset Analysis </h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">
-                            Exploration, hypothesis testing and model building on delivery dataset.
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">EDA</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Pandas</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Numpy</span>
-                            <span class="px-2 py-1 bg-gray-800/80 text-gray-400 rounded text-xs font-mono">Scipy</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://github.com/cosmicurvy/Delhivery-Dataset" class="flex-1 text-center py-2 border border-gray-700 hover:border-gray-600 text-gray-300 rounded font-medium text-sm transition-colors">Code</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>Seven projects, from exploratory analysis to deployed apps. Filter by type, or pick a skill further down to see where I used it.</p>
         </div>
+
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="ml" aria-pressed="false">Machine learning</button>
+          <button class="chip" type="button" data-filter="nlp" aria-pressed="false">NLP and LLMs</button>
+          <button class="chip" type="button" data-filter="analytics" aria-pressed="false">Analytics</button>
+          <button class="chip" type="button" data-filter="demo" aria-pressed="false">Live demo</button>
+        </div>
+
+        <p class="filter-note" id="filter-note" role="status" hidden>
+          <span id="filter-text"></span>
+          <button class="text-btn" id="filter-clear" type="button">Show all projects</button>
+        </p>
+
+        <div class="grid">
+
+          <!-- QA RAG System -->
+          <article class="card featured" data-cat="nlp" data-skills="python nlp rag fastapi docker cicd">
+            <div class="thumb">
+              <img src="images/rag.png" alt="Screenshot of the QA RAG system answering a question about an NLP paper" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h3>QA RAG system</h3>
+              <p>
+                Answers questions about NLP research papers. Papers are split with recursive chunking,
+                embedded with Hugging Face models and retrieved from ChromaDB. Uses Ollama for the
+                language model and DeepEval for evaluation. Containerized with Docker, with CI/CD
+                through GitHub Actions.
+              </p>
+              <ul class="tags">
+                <li>Python</li><li>ChromaDB</li><li>HuggingFaceEmbeddings</li><li>FastAPI</li>
+                <li>Docker</li><li>DeepEval</li><li>Ollama</li>
+              </ul>
+              <div class="links">
+                <a href="https://github.com/cosmicurvy/qa-rag-system/tree/main/screenshots" target="_blank" rel="noopener noreferrer">Screenshots</a>
+                <a class="plain" href="https://github.com/cosmicurvy/qa-rag-system" target="_blank" rel="noopener noreferrer">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Customer Churn Prediction -->
+          <article class="card" data-cat="ml demo" data-skills="python ml shap imblearn streamlit tableau">
+            <div class="thumb">
+              <span class="badge">Live demo</span>
+              <img src="images/customer_churn_preview.png" alt="Screenshot of the customer churn prediction app" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h3>Customer churn prediction</h3>
+              <p>
+                Predicts which customers are likely to leave. Covers exploratory analysis, feature
+                engineering, class-imbalance handling, cross-validated classifiers and SHAP
+                explanations, with a Tableau view of the results.
+              </p>
+              <ul class="tags">
+                <li>Python</li><li>Machine learning</li><li>SHAP</li><li>Imbalanced-learn</li><li>Streamlit</li>
+              </ul>
+              <div class="links">
+                <a href="https://customer-churn-prediction-pwappywh3appgedre6bwm6p.streamlit.app" target="_blank" rel="noopener noreferrer">Live demo</a>
+                <a class="plain" href="https://github.com/cosmicurvy/Customer-Churn-Prediction" target="_blank" rel="noopener noreferrer">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Two-stage loan approval -->
+          <article class="card" data-cat="ml demo" data-skills="python ml streamlit">
+            <div class="thumb">
+              <span class="badge">Live demo</span>
+              <img src="images/loan.png" alt="Screenshot of the two-stage loan approval app" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h3>Two-stage loan approval</h3>
+              <p>
+                Two models in sequence: the first predicts whether a loan is approved, the second
+                estimates the approved amount. Built with Random Forest and served in a Streamlit app.
+              </p>
+              <ul class="tags">
+                <li>Python</li><li>Machine learning</li><li>Streamlit</li>
+              </ul>
+              <div class="links">
+                <a href="https://2-stage-loan-approval-system-f4b526kvccxtxzrw7swbb9.streamlit.app" target="_blank" rel="noopener noreferrer">Live demo</a>
+                <a class="plain" href="https://github.com/cosmicurvy/2-Stage-Loan-Approval-System" target="_blank" rel="noopener noreferrer">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Amazon Reviews NLP -->
+          <article class="card" data-cat="nlp" data-skills="python nlp dl">
+            <div class="thumb">
+              <img src="images/sentiment_preview.png" alt="Screenshot of Amazon review topics and sentiment results" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h3>Amazon reviews: topics and sentiment</h3>
+              <p>
+                Finds what customers write about in Amazon reviews and how they feel about it, using
+                LDA topic modeling and sentiment classification with Word2Vec, LSTM and DistilBERT.
+              </p>
+              <ul class="tags">
+                <li>NLP</li><li>LDA</li><li>Word2Vec</li><li>LSTM</li><li>DistilBERT</li><li>WordCloud</li>
+              </ul>
+              <div class="links">
+                <a href="https://github.com/cosmicurvy/amazon-reviews-nlp/tree/main/images" target="_blank" rel="noopener noreferrer">Screenshots</a>
+                <a class="plain" href="https://github.com/cosmicurvy/amazon-reviews-nlp" target="_blank" rel="noopener noreferrer">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Spam Detection -->
+          <article class="card" data-cat="nlp ml" data-skills="python ml nlp flask">
+            <div class="thumb">
+              <img src="images/spam_detection_preview.png" alt="Screenshot of the spam detection project" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h3>Spam detection</h3>
+              <p>
+                Classifies a text message as spam or ham. Text preprocessing with NLTK, word clouds
+                for exploration, and a Flask app to serve the model.
+              </p>
+              <ul class="tags">
+                <li>Machine learning</li><li>NLTK</li><li>WordCloud</li><li>Flask</li>
+              </ul>
+              <div class="links">
+                <a href="https://github.com/cosmicurvy/Spam-Detection/tree/main/images" target="_blank" rel="noopener noreferrer">Screenshots</a>
+                <a class="plain" href="https://github.com/cosmicurvy/Spam-Detection" target="_blank" rel="noopener noreferrer">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Retail Intelligence System -->
+          <article class="card" data-cat="ml" data-skills="python ml">
+            <div class="thumb">
+              <img src="images/retail.png" alt="Screenshot of the retail sales prediction project" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h3>Retail intelligence system</h3>
+              <p>A machine learning project that predicts sales for retail stores.</p>
+              <ul class="tags">
+                <li>Python</li><li>Machine learning</li>
+              </ul>
+              <div class="links">
+                <a class="plain" href="https://github.com/cosmicurvy/Retail-Intelligence-System" target="_blank" rel="noopener noreferrer">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Delivery Dataset Analysis -->
+          <article class="card" data-cat="analytics" data-skills="python pandas numpy scipy statistics ml">
+            <div class="thumb">
+              <img src="images/delivery.png" alt="Screenshot of the delivery dataset analysis" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h3>Delivery dataset analysis</h3>
+              <p>Exploratory analysis, hypothesis testing and model building on a delivery dataset.</p>
+              <ul class="tags">
+                <li>EDA</li><li>Pandas</li><li>NumPy</li><li>SciPy</li>
+              </ul>
+              <div class="links">
+                <a class="plain" href="https://github.com/cosmicurvy/Delhivery-Dataset" target="_blank" rel="noopener noreferrer">Code</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Technical Skills</h2>
-                <div class="w-16 h-1 bg-cyan-400 mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <!-- Pythom -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-brands fa-python text-blue-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Python</p>
-                </div>
-                <!-- MySQL -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-database text-purple-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">MySQL</p>
-                </div>
-                <!-- Pandas -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-table text-blue-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Pandas</p>
-                </div>
-                <!-- NumPy -->
-               <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-cubes text-sky-500 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">NumPy</p>
-                </div>
-                <!-- SciPy -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-wave-square text-lime-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">SciPy</p>
-                </div>
-                <!-- Matplotlib -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-chart-line text-amber-500 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Matplotlib</p>
-                </div>
-                <!-- Seaborn -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-chart-bar text-orange-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Seaborn</p>
-                </div>
-                <!-- Imbalanced-learn -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                <i class="fa-solid fa-scale-unbalanced text-amber-600 text-3xl mb-2"></i>
-                <p class="font-medium text-white">Imbalanced-learn</p>
-                </div>
-                <!-- Statistics -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-calculator text-yellow-500 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Statistics</p>
-                </div>
-                <!-- Machine Learning -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-brain text-cyan-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Machine Learning</p>
-                </div>
-                <!-- Deep Learning -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-network-wired text-purple-500 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Deep Learning</p>
-                </div>
-                <!-- Natural Language Processing -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-comments text-pink-500 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Natural Language Processing</p>
-                </div>
-                <!-- Flask -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-flask text-emerald-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Flask</p>
-                </div>
-                <!-- Streamlit -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-window-restore text-red-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Streamlit</p>
-                </div>
-                <!-- FastAPI -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-bolt text-teal-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">FastAPI</p>
-                </div>
-                <!-- RAG / LangChain -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-database text-indigo-400 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">RAG / LangChain</p>
-                </div>
-                <!-- Git / GitHub -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-brands fa-git-alt text-orange-600 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Git / GitHub</p>
-                </div>
-                <!-- Docker -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-brands fa-docker text-blue-500 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">Docker</p>
-                </div>
-
-                <!-- CI/CD -->
-                <div class="p-4 bg-[#131b2e]/60 border border-gray-800/80 rounded-xl text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-infinity text-indigo-500 text-3xl mb-2"></i>
-                    <p class="font-medium text-white">CI/CD</p>
-                </div>
-                </div>
-            </div>
+    <!-- About -->
+    <section id="about" class="section alt">
+      <div class="wrap about">
+        <div>
+          <h2>I learn by building</h2>
+          <p>
+            I taught myself data science, and every project on this page started with a real question
+            and ended with something you can run, read or click.
+          </p>
+          <p>
+            I care about the full path from raw data to a working tool, not only the model score.
+          </p>
         </div>
+
+        <ol class="steps">
+          <li>
+            <div>
+              <h3>Explore and clean</h3>
+              <p>Start with the question, then check the data for gaps and class imbalance before choosing a model.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Model and explain</h3>
+              <p>Compare approaches, validate with cross-validation, and explain predictions with SHAP where it helps.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Ship and document</h3>
+              <p>Wrap the model in a Streamlit, Flask or FastAPI app, containerize it with Docker, and publish the code on GitHub.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-[#0e1422] border-t border-gray-800/50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Get In Touch</h2>
-                <p class="text-gray-400 max-w-md mx-auto">Have an interesting project? Let's build something amazing together.</p>
-                <div class="w-16 h-1 bg-cyan-400 mx-auto rounded-full mt-4"></div>
-            </div>
-
-            <div class="bg-[#131b2e] border border-gray-800 p-8 rounded-2xl shadow-xl text-center">
-                <!-- Main Email Button -->
-                <div class="mb-8">
-                    <a href="mailto:sahup9002@gmail.com" class="inline-flex items-center space-x-3 px-6 py-3 bg-gray-800 hover:bg-gray-700/80 border border-gray-700 text-cyan-400 font-mono rounded-xl transition-all group">
-                        <i class="fa-regular fa-envelope text-lg group-hover:scale-110 transition-transform"></i>
-                        <span>sahup9002@gmail.com</span>
-                    </a>
-                </div>
-
-                <!-- Social Media Direct Redirect Links -->
-                <div class="flex justify-center space-x-6 text-2xl">
-                    <a href="https://github.com/cosmicurvy" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" title="GitHub">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/cosmicurvy" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition-colors" title="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <!-- <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" title="Twitter / X">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a> -->
-                    <a href="https://www.kaggle.com/urvashisahu1720" class="text-gray-400 hover:text-pink-400 transition-colors" title="Other Link">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>The number next to a skill is how many projects above use it. Select one to see them.</p>
         </div>
+
+        <div class="skill-groups">
+          <div class="skill-group">
+            <h3>Data and analysis</h3>
+            <ul class="skill-list">
+              <li><button class="skill" type="button" data-skill="python">Python</button></li>
+              <li><button class="skill" type="button" data-skill="mysql">MySQL</button></li>
+              <li><button class="skill" type="button" data-skill="pandas">Pandas</button></li>
+              <li><button class="skill" type="button" data-skill="numpy">NumPy</button></li>
+              <li><button class="skill" type="button" data-skill="scipy">SciPy</button></li>
+              <li><button class="skill" type="button" data-skill="statistics">Statistics</button></li>
+              <li><button class="skill" type="button" data-skill="matplotlib">Matplotlib</button></li>
+              <li><button class="skill" type="button" data-skill="seaborn">Seaborn</button></li>
+              <li><button class="skill" type="button" data-skill="tableau">Tableau</button></li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Machine learning and NLP</h3>
+            <ul class="skill-list">
+              <li><button class="skill" type="button" data-skill="ml">Machine learning</button></li>
+              <li><button class="skill" type="button" data-skill="dl">Deep learning</button></li>
+              <li><button class="skill" type="button" data-skill="nlp">NLP</button></li>
+              <li><button class="skill" type="button" data-skill="rag">RAG and LangChain</button></li>
+              <li><button class="skill" type="button" data-skill="imblearn">Imbalanced-learn</button></li>
+              <li><button class="skill" type="button" data-skill="shap">SHAP</button></li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Build and ship</h3>
+            <ul class="skill-list">
+              <li><button class="skill" type="button" data-skill="streamlit">Streamlit</button></li>
+              <li><button class="skill" type="button" data-skill="flask">Flask</button></li>
+              <li><button class="skill" type="button" data-skill="fastapi">FastAPI</button></li>
+              <li><button class="skill" type="button" data-skill="docker">Docker</button></li>
+              <li><button class="skill" type="button" data-skill="cicd">CI/CD</button></li>
+              <li><button class="skill" type="button" data-skill="git">Git and GitHub</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#0b0f19] border-t border-gray-900 py-8 text-center text-xs text-gray-500">
-        <p>&copy; 2026 Uravshi Sahu. All rights reserved.</p>
-    </footer>
+    <!-- Contact -->
+    <section id="contact" class="section alt">
+      <div class="wrap contact">
+        <div>
+          <h2>Let's talk</h2>
+          <p>Have a dataset, a question or a role in mind? Send me an email.</p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="email" href="mailto:sahup9002@gmail.com">sahup9002@gmail.com</a>
+          <div class="row">
+            <a class="btn primary" href="mailto:sahup9002@gmail.com">Send an email</a>
+            <button class="btn ghost" id="copy-email" type="button" data-email="sahup9002@gmail.com">Copy email</button>
+          </div>
+          <ul class="socials">
+            <li><a href="https://github.com/cosmicurvy" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/cosmicurvy" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.kaggle.com/urvashisahu1720" target="_blank" rel="noopener noreferrer">Kaggle</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">&copy; 2026 Urvashi Sahu</div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 </body>
 </html>
