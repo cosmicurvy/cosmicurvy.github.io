@@ -72,6 +72,7 @@ button { font: inherit; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   height: 64px;
 }
 
@@ -82,7 +83,11 @@ button { font: inherit; color: inherit; }
   text-decoration: none;
 }
 
-.nav ul { display: flex; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+/* On small screens the menu scrolls sideways instead of overflowing */
+.nav nav { min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.nav nav::-webkit-scrollbar { display: none; }
+
+.nav ul { display: flex; gap: 0.25rem; list-style: none; margin: 0; padding: 0; white-space: nowrap; }
 
 .nav .link {
   display: block;
@@ -179,6 +184,25 @@ h2 {
 
 .section-head p { color: var(--dust); margin: 0; max-width: 60ch; }
 
+/* ---------- Profile links (hero and contact) ---------- */
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--line);
+  font-weight: 600;
+}
+
+.socials a { text-decoration: none; color: var(--star); border-bottom: 1px solid var(--line); transition: border-color 0.2s; }
+.socials a:hover { border-bottom-color: var(--amber); }
+
+/* Under the hero buttons there is no divider line */
+.hero .socials { border-top: 0; padding-top: 0; margin-top: 1.75rem; }
+
 /* ---------- Projects ---------- */
 
 .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
@@ -200,28 +224,6 @@ h2 {
 .chip[aria-pressed="true"] { background: var(--star); color: var(--night); border-color: var(--star); }
 
 .chip .n { margin-left: 0.4rem; opacity: 0.65; font-variant-numeric: tabular-nums; }
-
-.filter-note {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.75rem;
-  margin: 0 0 1.5rem;
-  color: var(--dust);
-}
-
-.filter-note[hidden] { display: none; }
-
-.text-btn {
-  background: none;
-  border: 0;
-  padding: 0;
-  color: var(--amber);
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
 
 .grid {
   display: grid;
@@ -364,13 +366,34 @@ h2 {
   border-radius: 6px;
   padding: 0.4rem 0.75rem;
   font-size: 0.95rem;
-  cursor: pointer;
-  transition: border-color 0.2s;
 }
 
-.skill:hover:not(:disabled) { border-color: var(--amber); }
-.skill:disabled { cursor: default; color: var(--dust); background: transparent; }
-.skill .n { margin-left: 0.4rem; color: var(--amber); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+/* ---------- Certificates ---------- */
+
+.certs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+
+.cert {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cert-year { color: var(--dust); font-variant-numeric: tabular-nums; }
+.cert h3 { font-family: var(--display); font-weight: 500; font-size: 1.2rem; margin: 0; }
+.cert p { margin: 0.15rem 0 0; color: var(--dust); font-size: 0.95rem; }
+
+.cert-link {
+  color: var(--amber);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px solid transparent;
+}
+
+.cert-link:hover { border-bottom-color: currentColor; }
 
 /* ---------- Contact ---------- */
 
@@ -396,19 +419,6 @@ h2 {
 
 .contact-actions .row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.25rem 0 2rem; }
 
-.socials {
-  display: flex;
-  gap: 1.75rem;
-  list-style: none;
-  margin: 0;
-  padding: 1.25rem 0 0;
-  border-top: 1px solid var(--line);
-  font-weight: 600;
-}
-
-.socials a { text-decoration: none; color: var(--star); border-bottom: 1px solid var(--line); transition: border-color 0.2s; }
-.socials a:hover { border-bottom-color: var(--amber); }
-
 .toast {
   position: fixed;
   left: 50%;
@@ -427,6 +437,59 @@ h2 {
 }
 
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Custom cursor (mouse devices only) ----------
+   dot  : follows the pointer exactly
+   ring : trails behind, grows over links, cards and buttons
+   glow : a soft light that drifts after the pointer          */
+
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+html.cursor-visible .cursor { opacity: 1; }
+
+.cursor::before { content: ""; position: absolute; border-radius: 50%; }
+
+.cursor-glow { z-index: 99; }
+.cursor-glow::before {
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  background: radial-gradient(circle, rgba(169, 139, 255, 0.15), rgba(169, 139, 255, 0) 65%);
+}
+
+.cursor-ring { z-index: 101; }
+.cursor-ring::before {
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border: 1.5px solid rgba(255, 180, 84, 0.75);
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.cursor-ring.is-link::before {
+  transform: scale(1.7);
+  background: rgba(255, 180, 84, 0.14);
+  border-color: rgba(255, 180, 84, 0.95);
+}
+
+.cursor-ring.is-down::before { transform: scale(0.8); }
+
+.cursor-dot { z-index: 102; mix-blend-mode: difference; }
+.cursor-dot::before { width: 8px; height: 8px; margin: -4px 0 0 -4px; background: #fff; }
+
+/* The system cursor is hidden only once the custom one is running */
+html.cursor-on,
+html.cursor-on * { cursor: none !important; }
 
 /* ---------- Footer ---------- */
 
@@ -457,6 +520,8 @@ h2 {
   }
 
   .nav .link { padding: 0.5rem 0.55rem; font-size: 0.9rem; }
+
+  .cert { grid-template-columns: 1fr; gap: 0.25rem; }
 }
 
 @media (max-width: 480px) {

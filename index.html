@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +23,7 @@
           <li><a class="link" href="#projects">Projects</a></li>
           <li><a class="link" href="#about">About</a></li>
           <li><a class="link" href="#skills">Skills</a></li>
+          <li><a class="link" href="#certificates">Certificates</a></li>
           <li><a class="link" href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -46,6 +46,14 @@
             <a class="btn primary" href="#projects">See my projects</a>
             <a class="btn ghost" href="#contact">Get in touch</a>
           </div>
+
+          <!-- Replace YOUR-LEETCODE-USERNAME here and in the contact section -->
+          <ul class="socials" aria-label="Profiles">
+            <li><a href="https://github.com/cosmicurvy" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://leetcode.com/u/YOUR-LEETCODE-USERNAME/" target="_blank" rel="noopener noreferrer">LeetCode</a></li>
+            <li><a href="https://www.kaggle.com/urvashisahu1720" target="_blank" rel="noopener noreferrer">Kaggle</a></li>
+            <li><a href="https://linkedin.com/in/cosmicurvy" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
         </div>
 
         <figure class="field">
@@ -61,7 +69,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Projects</h2>
-          <p>Seven projects, from exploratory analysis to deployed apps. Filter by type, or pick a skill further down to see where I used it.</p>
+          <p>Seven projects, from exploratory analysis to deployed apps. Filter by type to find what you are looking for.</p>
         </div>
 
         <div class="filters" role="group" aria-label="Filter projects">
@@ -72,15 +80,10 @@
           <button class="chip" type="button" data-filter="demo" aria-pressed="false">Live demo</button>
         </div>
 
-        <p class="filter-note" id="filter-note" role="status" hidden>
-          <span id="filter-text"></span>
-          <button class="text-btn" id="filter-clear" type="button">Show all projects</button>
-        </p>
-
         <div class="grid">
 
           <!-- QA RAG System -->
-          <article class="card featured" data-cat="nlp" data-skills="python nlp rag fastapi docker cicd">
+          <article class="card featured" data-cat="nlp">
             <div class="thumb">
               <img src="images/rag.png" alt="Screenshot of the QA RAG system answering a question about an NLP paper" loading="lazy" onerror="this.remove()">
             </div>
@@ -104,7 +107,7 @@
           </article>
 
           <!-- Customer Churn Prediction -->
-          <article class="card" data-cat="ml demo" data-skills="python ml shap imblearn streamlit tableau">
+          <article class="card" data-cat="ml demo">
             <div class="thumb">
               <span class="badge">Live demo</span>
               <img src="images/customer_churn_preview.png" alt="Screenshot of the customer churn prediction app" loading="lazy" onerror="this.remove()">
@@ -127,7 +130,7 @@
           </article>
 
           <!-- Two-stage loan approval -->
-          <article class="card" data-cat="ml demo" data-skills="python ml streamlit">
+          <article class="card" data-cat="ml demo">
             <div class="thumb">
               <span class="badge">Live demo</span>
               <img src="images/loan.png" alt="Screenshot of the two-stage loan approval app" loading="lazy" onerror="this.remove()">
@@ -149,7 +152,7 @@
           </article>
 
           <!-- Amazon Reviews NLP -->
-          <article class="card" data-cat="nlp" data-skills="python nlp dl">
+          <article class="card" data-cat="nlp">
             <div class="thumb">
               <img src="images/sentiment_preview.png" alt="Screenshot of Amazon review topics and sentiment results" loading="lazy" onerror="this.remove()">
             </div>
@@ -170,7 +173,7 @@
           </article>
 
           <!-- Spam Detection -->
-          <article class="card" data-cat="nlp ml" data-skills="python ml nlp flask">
+          <article class="card" data-cat="nlp ml">
             <div class="thumb">
               <img src="images/spam_detection_preview.png" alt="Screenshot of the spam detection project" loading="lazy" onerror="this.remove()">
             </div>
@@ -191,7 +194,7 @@
           </article>
 
           <!-- Retail Intelligence System -->
-          <article class="card" data-cat="ml" data-skills="python ml">
+          <article class="card" data-cat="ml">
             <div class="thumb">
               <img src="images/retail.png" alt="Screenshot of the retail sales prediction project" loading="lazy" onerror="this.remove()">
             </div>
@@ -208,7 +211,7 @@
           </article>
 
           <!-- Delivery Dataset Analysis -->
-          <article class="card" data-cat="analytics" data-skills="python pandas numpy scipy statistics ml">
+          <article class="card" data-cat="analytics">
             <div class="thumb">
               <img src="images/delivery.png" alt="Screenshot of the delivery dataset analysis" loading="lazy" onerror="this.remove()">
             </div>
@@ -270,54 +273,92 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Skills</h2>
-          <p>The number next to a skill is how many projects above use it. Select one to see them.</p>
+          <p>Tools and methods I use across my projects.</p>
         </div>
 
         <div class="skill-groups">
           <div class="skill-group">
             <h3>Data and analysis</h3>
             <ul class="skill-list">
-              <li><button class="skill" type="button" data-skill="python">Python</button></li>
-              <li><button class="skill" type="button" data-skill="mysql">MySQL</button></li>
-              <li><button class="skill" type="button" data-skill="pandas">Pandas</button></li>
-              <li><button class="skill" type="button" data-skill="numpy">NumPy</button></li>
-              <li><button class="skill" type="button" data-skill="scipy">SciPy</button></li>
-              <li><button class="skill" type="button" data-skill="statistics">Statistics</button></li>
-              <li><button class="skill" type="button" data-skill="matplotlib">Matplotlib</button></li>
-              <li><button class="skill" type="button" data-skill="seaborn">Seaborn</button></li>
-              <li><button class="skill" type="button" data-skill="tableau">Tableau</button></li>
+              <li class="skill">Python</li>
+              <li class="skill">MySQL</li>
+              <li class="skill">Pandas</li>
+              <li class="skill">NumPy</li>
+              <li class="skill">SciPy</li>
+              <li class="skill">Statistics</li>
+              <li class="skill">Matplotlib</li>
+              <li class="skill">Seaborn</li>
+              <li class="skill">Tableau</li>
             </ul>
           </div>
 
           <div class="skill-group">
             <h3>Machine learning and NLP</h3>
             <ul class="skill-list">
-              <li><button class="skill" type="button" data-skill="ml">Machine learning</button></li>
-              <li><button class="skill" type="button" data-skill="dl">Deep learning</button></li>
-              <li><button class="skill" type="button" data-skill="nlp">NLP</button></li>
-              <li><button class="skill" type="button" data-skill="rag">RAG and LangChain</button></li>
-              <li><button class="skill" type="button" data-skill="imblearn">Imbalanced-learn</button></li>
-              <li><button class="skill" type="button" data-skill="shap">SHAP</button></li>
+              <li class="skill">Machine learning</li>
+              <li class="skill">Deep learning</li>
+              <li class="skill">NLP</li>
+              <li class="skill">RAG and LangChain</li>
+              <li class="skill">Imbalanced-learn</li>
+              <li class="skill">SHAP</li>
             </ul>
           </div>
 
           <div class="skill-group">
             <h3>Build and ship</h3>
             <ul class="skill-list">
-              <li><button class="skill" type="button" data-skill="streamlit">Streamlit</button></li>
-              <li><button class="skill" type="button" data-skill="flask">Flask</button></li>
-              <li><button class="skill" type="button" data-skill="fastapi">FastAPI</button></li>
-              <li><button class="skill" type="button" data-skill="docker">Docker</button></li>
-              <li><button class="skill" type="button" data-skill="cicd">CI/CD</button></li>
-              <li><button class="skill" type="button" data-skill="git">Git and GitHub</button></li>
+              <li class="skill">Streamlit</li>
+              <li class="skill">Flask</li>
+              <li class="skill">FastAPI</li>
+              <li class="skill">Docker</li>
+              <li class="skill">CI/CD</li>
+              <li class="skill">Git and GitHub</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Certificates -->
+    <section id="certificates" class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Certificates</h2>
+          <p>Courses and programs I have completed.</p>
+        </div>
+
+        <!-- Replace the three sample rows with your own certificates. Copy a <li> to add more. -->
+        <ul class="certs">
+          <li class="cert">
+            <span class="cert-year">Year</span>
+            <div>
+              <h3>Certificate title</h3>
+              <p>Issuing organization</p>
+            </div>
+            <a class="cert-link" href="#" target="_blank" rel="noopener noreferrer">View certificate</a>
+          </li>
+          <li class="cert">
+            <span class="cert-year">Year</span>
+            <div>
+              <h3>Certificate title</h3>
+              <p>Issuing organization</p>
+            </div>
+            <a class="cert-link" href="#" target="_blank" rel="noopener noreferrer">View certificate</a>
+          </li>
+          <li class="cert">
+            <span class="cert-year">Year</span>
+            <div>
+              <h3>Certificate title</h3>
+              <p>Issuing organization</p>
+            </div>
+            <a class="cert-link" href="#" target="_blank" rel="noopener noreferrer">View certificate</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- Contact -->
-    <section id="contact" class="section alt">
+    <section id="contact" class="section">
       <div class="wrap contact">
         <div>
           <h2>Let's talk</h2>
@@ -330,10 +371,11 @@
             <a class="btn primary" href="mailto:sahup9002@gmail.com">Send an email</a>
             <button class="btn ghost" id="copy-email" type="button" data-email="sahup9002@gmail.com">Copy email</button>
           </div>
-          <ul class="socials">
+          <ul class="socials" aria-label="Profiles">
             <li><a href="https://github.com/cosmicurvy" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/cosmicurvy" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://leetcode.com/u/YOUR-LEETCODE-USERNAME/" target="_blank" rel="noopener noreferrer">LeetCode</a></li>
             <li><a href="https://www.kaggle.com/urvashisahu1720" target="_blank" rel="noopener noreferrer">Kaggle</a></li>
+            <li><a href="https://linkedin.com/in/cosmicurvy" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
       </div>

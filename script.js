@@ -182,106 +182,46 @@
   }
 
   /* ==========================================================
-     2. Projects: filter by category or by skill
+     2. Projects: filter by category
      ========================================================== */
   const cards = $$('.card');
   const chips = $$('.filters .chip');
-  const note = $('#filter-note');
-  const noteText = $('#filter-text');
-  const state = { type: 'all', value: 'all', label: '' };
 
-  const has = (card, key, value) => (card.dataset[key] || '').split(' ').includes(value);
+  const inCategory = (card, value) => (card.dataset.cat || '').split(' ').includes(value);
 
-  // counts on the category chips
+  // counts on the filter chips
   chips.forEach((chip) => {
     const value = chip.dataset.filter;
-    const n = value === 'all' ? cards.length : cards.filter((c) => has(c, 'cat', value)).length;
+    const n = value === 'all' ? cards.length : cards.filter((c) => inCategory(c, value)).length;
     const span = document.createElement('span');
     span.className = 'n';
     span.textContent = n;
     chip.append(span);
   });
 
-  function applyFilter() {
-    let visible = 0;
-
-    cards.forEach((card) => {
-      const show =
-        state.type === 'all' ||
-        (state.type === 'cat' && has(card, 'cat', state.value)) ||
-        (state.type === 'skill' && has(card, 'skills', state.value));
-
-      const wasHidden = card.hidden;
-      card.hidden = !show;
-      if (show) visible += 1;
-
-      if (show && wasHidden && !reduceMotion) {
-        card.animate(
-          [{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
-          { duration: 260, easing: 'ease-out' }
-        );
-      }
-    });
-
-    chips.forEach((chip) => {
-      const on = state.type === 'all'
-        ? chip.dataset.filter === 'all'
-        : state.type === 'cat' && chip.dataset.filter === state.value;
-      chip.setAttribute('aria-pressed', String(on));
-    });
-
-    if (state.type === 'skill') {
-      noteText.textContent = `Showing ${visible} ${visible === 1 ? 'project' : 'projects'} that use ${state.label}.`;
-      note.hidden = false;
-    } else {
-      note.hidden = true;
-    }
-  }
-
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      state.type = chip.dataset.filter === 'all' ? 'all' : 'cat';
-      state.value = chip.dataset.filter;
-      applyFilter();
-    });
-  });
+      const value = chip.dataset.filter;
 
-  $('#filter-clear').addEventListener('click', () => {
-    state.type = 'all';
-    state.value = 'all';
-    applyFilter();
-  });
+      cards.forEach((card) => {
+        const show = value === 'all' || inCategory(card, value);
+        const wasHidden = card.hidden;
+        card.hidden = !show;
 
-  /* ==========================================================
-     3. Skills: show project counts, click to filter projects
-     ========================================================== */
-  $$('.skill').forEach((button) => {
-    const id = button.dataset.skill;
-    const label = button.textContent.trim();
-    const n = cards.filter((c) => has(c, 'skills', id)).length;
+        if (show && wasHidden && !reduceMotion) {
+          card.animate(
+            [{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 260, easing: 'ease-out' }
+          );
+        }
+      });
 
-    if (!n) {
-      button.disabled = true;
-      return;
-    }
-
-    const span = document.createElement('span');
-    span.className = 'n';
-    span.textContent = n;
-    button.append(span);
-    button.setAttribute('aria-label', `${label}, used in ${n} ${n === 1 ? 'project' : 'projects'}. Show them.`);
-
-    button.addEventListener('click', () => {
-      state.type = 'skill';
-      state.value = id;
-      state.label = label;
-      applyFilter();
-      $('#projects').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
     });
   });
 
   /* ==========================================================
-     4. Navigation: highlight the section you are reading
+     3. Navigation: highlight the section you are reading
      ========================================================== */
   const links = $$('.nav .link');
   const sections = links.map((a) => $(a.getAttribute('href'))).filter(Boolean);
@@ -290,7 +230,12 @@
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`));
+        links.forEach((a) => {
+          const active = a.getAttribute('href') === `#${entry.target.id}`;
+          a.classList.toggle('active', active);
+          // keep the active link in view when the menu scrolls sideways on phones
+          if (active && a.scrollIntoView) a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        });
       });
     },
     { rootMargin: '-40% 0px -55% 0px' }
@@ -298,7 +243,7 @@
   sections.forEach((section) => spy.observe(section));
 
   /* ==========================================================
-     5. Contact: copy email address
+     4. Contact: copy email address
      ========================================================== */
   const copyButton = $('#copy-email');
   const toast = $('#toast');
@@ -337,4 +282,80 @@
       showToast('Could not copy. Select the address and copy it instead.');
     }
   });
+
+  /* ==========================================================
+     5. Custom cursor (mouse devices only)
+        - a small dot that follows the pointer exactly
+        - a ring that trails behind and grows over links and cards
+        - a soft glow that drifts after the pointer
+        Touch screens and "reduce motion" users keep the normal cursor.
+     ========================================================== */
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (finePointer && !reduceMotion) {
+    const root = document.documentElement;
+    const INTERACTIVE = 'a, button, .chip, .card, .cert';
+
+    const make = (name) => {
+      const el = document.createElement('div');
+      el.className = `cursor cursor-${name}`;
+      el.setAttribute('aria-hidden', 'true');
+      document.body.append(el);
+      return el;
+    };
+
+    const glow = make('glow');
+    const ring = make('ring');
+    const dot = make('dot');
+
+    let mx = -200, my = -200;   // pointer
+    let rx = mx, ry = my;       // ring
+    let gx = mx, gy = my;       // glow
+    let awake = false;
+    let raf = 0;
+
+    const place = (el, x, y) => { el.style.transform = `translate3d(${x}px, ${y}px, 0)`; };
+
+    const loop = () => {
+      rx += (mx - rx) * 0.2;
+      ry += (my - ry) * 0.2;
+      gx += (mx - gx) * 0.08;
+      gy += (my - gy) * 0.08;
+      place(dot, mx, my);
+      place(ring, rx, ry);
+      place(glow, gx, gy);
+      raf = requestAnimationFrame(loop);
+    };
+
+    window.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      mx = e.clientX;
+      my = e.clientY;
+
+      if (!awake) {
+        awake = true;
+        rx = gx = mx;
+        ry = gy = my;
+        root.classList.add('cursor-on');
+        raf = requestAnimationFrame(loop);
+      }
+
+      root.classList.add('cursor-visible');
+      ring.classList.toggle('is-link', Boolean(e.target.closest && e.target.closest(INTERACTIVE)));
+    }, { passive: true });
+
+    root.addEventListener('mouseleave', () => root.classList.remove('cursor-visible'));
+    root.addEventListener('mouseenter', () => root.classList.add('cursor-visible'));
+    window.addEventListener('pointerdown', () => ring.classList.add('is-down'));
+    window.addEventListener('pointerup', () => ring.classList.remove('is-down'));
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      } else if (awake && !raf) {
+        raf = requestAnimationFrame(loop);
+      }
+    });
+  }
 })();
