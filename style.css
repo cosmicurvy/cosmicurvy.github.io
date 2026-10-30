@@ -453,6 +453,8 @@ h2 {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.25s;
+  will-change: transform;
+  contain: layout style;
 }
 
 html.cursor-visible .cursor { opacity: 1; }
@@ -461,9 +463,9 @@ html.cursor-visible .cursor { opacity: 1; }
 
 .cursor-glow { z-index: 99; }
 .cursor-glow::before {
-  width: 520px;
-  height: 520px;
-  margin: -260px 0 0 -260px;
+  width: 440px;
+  height: 440px;
+  margin: -220px 0 0 -220px;
   background: radial-gradient(circle, rgba(169, 139, 255, 0.15), rgba(169, 139, 255, 0) 65%);
 }
 
@@ -484,8 +486,14 @@ html.cursor-visible .cursor { opacity: 1; }
 
 .cursor-ring.is-down::before { transform: scale(0.8); }
 
-.cursor-dot { z-index: 102; mix-blend-mode: difference; }
-.cursor-dot::before { width: 8px; height: 8px; margin: -4px 0 0 -4px; background: #fff; }
+.cursor-dot { z-index: 102; }
+.cursor-dot::before {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--star);
+  box-shadow: 0 0 0 1.5px rgba(21, 17, 43, 0.75);
+}
 
 /* The system cursor is hidden only once the custom one is running */
 html.cursor-on,

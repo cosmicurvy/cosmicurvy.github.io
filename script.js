@@ -224,7 +224,16 @@
      3. Navigation: highlight the section you are reading
      ========================================================== */
   const links = $$('.nav .link');
+  const navScroller = $('.nav nav');
   const sections = links.map((a) => $(a.getAttribute('href'))).filter(Boolean);
+
+  // On phones the menu scrolls sideways. Move only the menu, never the page.
+  const centerInMenu = (a) => {
+    if (!navScroller || navScroller.scrollWidth <= navScroller.clientWidth) return;
+    const link = a.getBoundingClientRect();
+    const menu = navScroller.getBoundingClientRect();
+    navScroller.scrollLeft += link.left - menu.left - (menu.width - link.width) / 2;
+  };
 
   const spy = new IntersectionObserver(
     (entries) => {
@@ -233,8 +242,7 @@
         links.forEach((a) => {
           const active = a.getAttribute('href') === `#${entry.target.id}`;
           a.classList.toggle('active', active);
-          // keep the active link in view when the menu scrolls sideways on phones
-          if (active && a.scrollIntoView) a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+          if (active) centerInMenu(a);
         });
       });
     },
@@ -289,6 +297,13 @@
         - a ring that trails behind and grows over links and cards
         - a soft glow that drifts after the pointer
         Touch screens and "reduce motion" users keep the normal cursor.
+
+        Built so it never gets in the way of scrolling:
+        - nothing here scrolls the page or listens to wheel events
+        - the animation loop sleeps when the ring has caught up
+        - hover state is re-checked while the page scrolls under a
+          still mouse, so the ring never shows a stale state
+        - the custom cursor hides over the scrollbar and outside the window
      ========================================================== */
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -312,18 +327,40 @@
     let rx = mx, ry = my;       // ring
     let gx = mx, gy = my;       // glow
     let awake = false;
+    let running = false;
     let raf = 0;
 
     const place = (el, x, y) => { el.style.transform = `translate3d(${x}px, ${y}px, 0)`; };
+    const show = () => root.classList.add('cursor-visible');
+    const hide = () => {
+      root.classList.remove('cursor-visible');
+      ring.classList.remove('is-down');
+    };
+
+    const setHover = (el) => ring.classList.toggle('is-link', Boolean(el && el.closest && el.closest(INTERACTIVE)));
 
     const loop = () => {
       rx += (mx - rx) * 0.2;
       ry += (my - ry) * 0.2;
       gx += (mx - gx) * 0.08;
       gy += (my - gy) * 0.08;
-      place(dot, mx, my);
       place(ring, rx, ry);
       place(glow, gx, gy);
+
+      const settled =
+        Math.abs(mx - rx) < 0.1 && Math.abs(my - ry) < 0.1 &&
+        Math.abs(mx - gx) < 0.1 && Math.abs(my - gy) < 0.1;
+
+      if (settled || document.hidden) {
+        running = false;
+        return;
+      }
+      raf = requestAnimationFrame(loop);
+    };
+
+    const wake = () => {
+      if (running) return;
+      running = true;
       raf = requestAnimationFrame(loop);
     };
 
@@ -332,30 +369,54 @@
       mx = e.clientX;
       my = e.clientY;
 
+      // the page scrollbar belongs to the browser, so let the normal cursor show there
+      if (mx >= root.clientWidth) {
+        hide();
+        return;
+      }
+
       if (!awake) {
         awake = true;
         rx = gx = mx;
         ry = gy = my;
         root.classList.add('cursor-on');
-        raf = requestAnimationFrame(loop);
       }
 
-      root.classList.add('cursor-visible');
-      ring.classList.toggle('is-link', Boolean(e.target.closest && e.target.closest(INTERACTIVE)));
+      place(dot, mx, my);   // the dot never lags
+      setHover(e.target);
+      show();
+      wake();
     }, { passive: true });
 
-    root.addEventListener('mouseleave', () => root.classList.remove('cursor-visible'));
-    root.addEventListener('mouseenter', () => root.classList.add('cursor-visible'));
-    window.addEventListener('pointerdown', () => ring.classList.add('is-down'));
+    // When the page scrolls under a still mouse, no pointermove fires.
+    // Re-check what is under the pointer, at most every 100 ms and once more when scrolling stops.
+    let lastCheck = 0;
+    let settleTimer = 0;
+    const recheck = () => { if (awake) setHover(document.elementFromPoint(mx, my)); };
+
+    window.addEventListener('scroll', () => {
+      if (!awake) return;
+      const now = performance.now();
+      if (now - lastCheck > 100) {
+        lastCheck = now;
+        recheck();
+      }
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(recheck, 120);
+    }, { passive: true });
+
+    // leaving the window, the tab or the page area hides the custom cursor
+    root.addEventListener('mouseleave', hide);
+    root.addEventListener('mouseenter', (e) => { if (e.clientX < root.clientWidth && awake) show(); });
+    window.addEventListener('blur', hide);
+
+    window.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') ring.classList.add('is-down'); });
     window.addEventListener('pointerup', () => ring.classList.remove('is-down'));
+    window.addEventListener('pointercancel', () => ring.classList.remove('is-down'));
 
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        cancelAnimationFrame(raf);
-        raf = 0;
-      } else if (awake && !raf) {
-        raf = requestAnimationFrame(loop);
-      }
+      if (document.hidden) hide();
+      else if (awake) wake();
     });
   }
 })();
